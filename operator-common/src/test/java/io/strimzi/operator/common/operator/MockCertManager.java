@@ -122,40 +122,32 @@ public class MockCertManager implements CertManager {
             "QtlIdmFljGSaGGY6aJjUvUdgoPp1yQPa5oS+afr5g9gaEp4lxP6mc+Li\n" +
             "-----END CERTIFICATE-----\n";
 
-    private static final String SERVER_CERT = "-----BEGIN CERTIFICATE-----\n" +
-            "MIIFvTCCA6WgAwIBAgIUY2TLga/rcy7VMbDFhUOTvlY1Z+IwDQYJKoZIhvcNAQEL\n" +
-            "BQAwbTELMAkGA1UEBhMCWFgxFTATBgNVBAcMDERlZmF1bHQgQ2l0eTEQMA4GA1UE\n" +
-            "CgwHU3RyaW16aTEVMBMGA1UEAwwMU3RyaW16aSBUZXN0MR4wHAYJKoZIhvcNAQkB\n" +
-            "Fg9pbmZvQHN0cmltemkuaW8wIBcNMjMwMTEyMDQzMDA2WhgPMjEyMjEyMTkwNDMw\n" +
-            "MDZaMG0xCzAJBgNVBAYTAlhYMRUwEwYDVQQHDAxEZWZhdWx0IENpdHkxEDAOBgNV\n" +
-            "BAoMB1N0cmltemkxFTATBgNVBAMMDFN0cmltemkgVGVzdDEeMBwGCSqGSIb3DQEJ\n" +
-            "ARYPaW5mb0BzdHJpbXppLmlvMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKC\n" +
-            "AgEAtLNAOsVmLa05JnCq6n8aUf5IqqWjR0Lw4Gn2gqxIbe7+q88jmqPAF/aUIBmU\n" +
-            "COcmS+GC+EaAi522mociYUcveonfoOUaSh8T23a3LY4ACq2NZsUH96qUTSieFFEL\n" +
-            "VSz/XXwOuAI+HCZTvG/veRFCPzL2HAJdqmTJyh9vtknedKdQvhhyQYpERPtFv0Dh\n" +
-            "zMw2/PUgDs3Zf1OWByv2X3xGBydCHL9ahoJzaArZA+jIXTAQl1y4T0uFusLxWjiA\n" +
-            "Q96xJnA/6d+9Rt0Urxj7H9RpChVw1vJ+qekEvrNT1HrVsE26LkQzE8kL5tHAYUeF\n" +
-            "s+KIN5VKxq+cN5DLJ6eZ6Us7N0hGZrd9gg8ntlSb/gsCA+SNPyVB+ix9NKvhlduP\n" +
-            "KS6N/EBsJBbiVeRzGTDuiNTHgjv/58/bdZGZ3R+9KUMB4xUcO2CMvQWgd1ZDoi4P\n" +
-            "M91PERpqAj4UDFU07F3k0K8nunjk3OW3Q75eE+6L3q6+Gssz8aGLzP1muZZTtZ/Z\n" +
-            "CeO46FmQ42Yt8uMS8/UMHleRAENTY9sEyFrfN3AszXrXK4SdP/9dRgqjm8Jalcqw\n" +
-            "kiJDR8+LTpYSy+uTY7dD3C2H1mn0eqLZp3RamvpSzQcIvjQPGZWpLvvsy7V8P0jW\n" +
-            "9yA7+l5c/bqzy6B/IUAfayce7kBdICIZe9T1F4JPeOfB03kCAwEAAaNTMFEwHQYD\n" +
-            "VR0OBBYEFOLSmBfdqO9vxzPbi+p01yFVwxydMB8GA1UdIwQYMBaAFOLSmBfdqO9v\n" +
-            "xzPbi+p01yFVwxydMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggIB\n" +
-            "AB+8q/ryDeEJ6lekOQqV16qkgxUO6yiu/mnRrYr2rE1hxj2Nd4ydJAsa30XnmlTd\n" +
-            "mEo2SmOqDxjPh92rxJbuDzlpp6D5KmTvgeVpDQ12XfLEXGF9IgFZEf+f+2gnoelD\n" +
-            "eCm/G+gixVZmkX2hc+0AMJR2sz9RNTZ8ZGHNRzHWVR2VvdLmKOsHjXxQguyaEX3K\n" +
-            "U+CllmWEEDN09rdlcGj1dQJOTvRitEmzMWKxhETFQc/hPeKsdOUDDOJNjuXEdpGG\n" +
-            "yZ6fT5wTOvK2P/+Lbln6BEEMWEhVJCCbvyka8c0U4s3XzqVsbw/H0D71W0jwhJGz\n" +
-            "XPNxRLf9OnV4zMWysIxZeNv7l+CqKb+9kTX4iC8aUPng1rZmH6PzVdbwFieC/wo/\n" +
-            "2UV56DO6ELgnlWizVqmQNPZu7u6PqKkZiKhLvUpBrAi4C/T8Rp4vQoutxuLawpRp\n" +
-            "j8G9RsF7lA1QwyjP4rXP7p/VcV+n39yJLESuqrHAN/KBP+XfvM4biul2DdSKO1WN\n" +
-            "zunbeR5J6TjQRwtagGWL41opVS+uX+ofiR0lysaisxMiE2LuRhpQTuub7m0OXY5g\n" +
-            "Z/EZXnUvP68SfDTm3RFf5GlZW/kJUtKRetR917/idpReCO2ly6QC8sL92X8OknQY\n" +
-            "J8jTcxnvCR07g3pHdX9IPuL3ToqN8uDQrAB+iwCk1efx\n" +
+    private static final String END_ENTITY_CERT = "-----BEGIN CERTIFICATE-----\n" +
+            "MIIESjCCAzICFAom42BJSu8N8fTix+wYFeTnFXkrMA0GCSqGSIb3DQEBCwUAMFcx\n" +
+            "CzAJBgNVBAYTAlhYMRUwEwYDVQQHDAxEZWZhdWx0IENpdHkxHDAaBgNVBAoME0Rl\n" +
+            "ZmF1bHQgQ29tcGFueSBMdGQxEzARBgNVBAMMCmNsdXN0ZXItY2EwIBcNMjMwMTEy\n" +
+            "MTE1NTEyWhgPMjEyMjEyMTkxMTU1MTJaMGoxCzAJBgNVBAYTAkRFMQwwCgYDVQQI\n" +
+            "DANOUlcxEzARBgNVBAcMCkR1c3NlbGRvcmYxEDAOBgNVBAoMB1N0cmltemkxEDAO\n" +
+            "BgNVBAsMB1N0cmltemkxFDASBgNVBAMMC1N0cmltemlUZXN0MIICIjANBgkqhkiG\n" +
+            "9w0BAQEFAAOCAg8AMIICCgKCAgEAtLNAOsVmLa05JnCq6n8aUf5IqqWjR0Lw4Gn2\n" +
+            "gqxIbe7+q88jmqPAF/aUIBmUCOcmS+GC+EaAi522mociYUcveonfoOUaSh8T23a3\n" +
+            "LY4ACq2NZsUH96qUTSieFFELVSz/XXwOuAI+HCZTvG/veRFCPzL2HAJdqmTJyh9v\n" +
+            "tknedKdQvhhyQYpERPtFv0DhzMw2/PUgDs3Zf1OWByv2X3xGBydCHL9ahoJzaArZ\n" +
+            "A+jIXTAQl1y4T0uFusLxWjiAQ96xJnA/6d+9Rt0Urxj7H9RpChVw1vJ+qekEvrNT\n" +
+            "1HrVsE26LkQzE8kL5tHAYUeFs+KIN5VKxq+cN5DLJ6eZ6Us7N0hGZrd9gg8ntlSb\n" +
+            "/gsCA+SNPyVB+ix9NKvhlduPKS6N/EBsJBbiVeRzGTDuiNTHgjv/58/bdZGZ3R+9\n" +
+            "KUMB4xUcO2CMvQWgd1ZDoi4PM91PERpqAj4UDFU07F3k0K8nunjk3OW3Q75eE+6L\n" +
+            "3q6+Gssz8aGLzP1muZZTtZ/ZCeO46FmQ42Yt8uMS8/UMHleRAENTY9sEyFrfN3As\n" +
+            "zXrXK4SdP/9dRgqjm8JalcqwkiJDR8+LTpYSy+uTY7dD3C2H1mn0eqLZp3RamvpS\n" +
+            "zQcIvjQPGZWpLvvsy7V8P0jW9yA7+l5c/bqzy6B/IUAfayce7kBdICIZe9T1F4JP\n" +
+            "eOfB03kCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEATtZnkLygVsQX39oS+ra/eI0U\n" +
+            "w1Nr03RSn/CYPEe0B9UI7FxprcbzBnQyVhzgUcr7e6aOKfAM92k1uCcFwg1YOZcB\n" +
+            "u2YNGDum7AjwyazRKCXX30QY3eKyBuWCsA96z2Z8gxvmqtxKmk7X0LsoNQ4qWvxV\n" +
+            "yPlKo9idFuhf2IhFwd1ucX3S+ZWRXxzQGeLjdpqf0vBUA9uqP5bjMZHwums1s/MB\n" +
+            "MyngL6wecFymyjqK3kduVNKvIo/juPq0NV8u70gdHltsaJArw4sfMw/4LnR++hRD\n" +
+            "EgqE8p9hEapdshRN9+YQchN44URq4xwcE/fDebru+IxPbkDOCMsj5x1WcUCg7w==\n" +
             "-----END CERTIFICATE-----";
-    private static final String SERVER_KEY = "-----BEGIN PRIVATE KEY-----\n" +
+    private static final String END_ENTITY_KEY = "-----BEGIN PRIVATE KEY-----\n" +
             "MIIJQQIBADANBgkqhkiG9w0BAQEFAASCCSswggknAgEAAoICAQC0s0A6xWYtrTkm\n" +
             "cKrqfxpR/kiqpaNHQvDgafaCrEht7v6rzyOao8AX9pQgGZQI5yZL4YL4RoCLnbaa\n" +
             "hyJhRy96id+g5RpKHxPbdrctjgAKrY1mxQf3qpRNKJ4UUQtVLP9dfA64Aj4cJlO8\n" +
@@ -211,7 +203,7 @@ public class MockCertManager implements CertManager {
 
     private static final byte[] CLUSTER_CERT_STORE;
     private static final byte[] CLIENTS_CERT_STORE;
-    private static final byte[] SERVER_CERT_STORE;
+    private static final byte[] END_ENTITY_CERT_STORE;
 
 
     static {
@@ -219,8 +211,8 @@ public class MockCertManager implements CertManager {
         CLUSTER_CERT_STORE = loadResource(is);
         is = MockCertManager.class.getClassLoader().getResourceAsStream("CLIENTS_CERT.str");
         CLIENTS_CERT_STORE = loadResource(is);
-        is = MockCertManager.class.getClassLoader().getResourceAsStream("SERVER_CERT.str");
-        SERVER_CERT_STORE = loadResource(is);
+        is = MockCertManager.class.getClassLoader().getResourceAsStream("END_ENTITY_CERT.str");
+        END_ENTITY_CERT_STORE = loadResource(is);
     }
 
     public static String clusterCaCert() {
@@ -239,12 +231,20 @@ public class MockCertManager implements CertManager {
         return Base64.getEncoder().encodeToString(CLIENTS_KEY.getBytes(Charset.defaultCharset()));
     }
 
-    public static String entityCert() {
-        return Base64.getEncoder().encodeToString(SERVER_CERT.getBytes(Charset.defaultCharset()));
+    public static String serverCert() {
+        return Base64.getEncoder().encodeToString(END_ENTITY_CERT.getBytes(Charset.defaultCharset()));
     }
 
-    public static String entityKey() {
-        return Base64.getEncoder().encodeToString(SERVER_KEY.getBytes(Charset.defaultCharset()));
+    public static String serverKey() {
+        return Base64.getEncoder().encodeToString(END_ENTITY_KEY.getBytes(Charset.defaultCharset()));
+    }
+
+    public static String userCert() {
+        return Base64.getEncoder().encodeToString(END_ENTITY_CERT.getBytes(Charset.defaultCharset()));
+    }
+
+    public static String userKey() {
+        return Base64.getEncoder().encodeToString(END_ENTITY_KEY.getBytes(Charset.defaultCharset()));
     }
 
     public static String clusterCaCertStore() {
@@ -255,9 +255,10 @@ public class MockCertManager implements CertManager {
         return Base64.getEncoder().encodeToString(CLIENTS_CERT_STORE);
     }
 
-    public static String entityCertStore() {
-        return Base64.getEncoder().encodeToString(SERVER_CERT_STORE);
+    public static String serverCertStore() {
+        return Base64.getEncoder().encodeToString(END_ENTITY_CERT_STORE);
     }
+
 
     public static String certStorePassword() {
         return Base64.getEncoder().encodeToString(CERT_STORE_PASSWORD.getBytes(Charset.defaultCharset()));
@@ -336,7 +337,7 @@ public class MockCertManager implements CertManager {
 
     @Override
     public void addKeyAndCertToKeyStore(File keyFile, File certFile, String alias, File keyStoreFile, String keyStorePassword) throws IOException {
-        Files.write(keyStoreFile.toPath(), SERVER_CERT_STORE);
+        Files.write(keyStoreFile.toPath(), END_ENTITY_CERT_STORE);
     }
 
     @Override
@@ -354,17 +355,22 @@ public class MockCertManager implements CertManager {
      */
     @Override
     public void generateCsr(File keyFile, File csrFile, Subject sbj) throws IOException {
-        write(keyFile, SERVER_KEY);
-        write(csrFile, SERVER_CERT);
+        write(keyFile, END_ENTITY_KEY);
+        write(csrFile, END_ENTITY_CERT);
     }
 
     @Override
     public void generateCert(File csrFile, File caKey, File caCert, File crtFile, Subject sbj, int days) throws IOException {
-        write(crtFile, SERVER_CERT);
+//        write(crtFile, END_ENTITY_CERT);
+        write(caCert, "cert");
+
+
+
     }
 
     @Override
     public void generateCert(File csrFile, byte[] caKey, byte[] caCert, File crtFile, Subject sbj, int days) throws IOException {
-        write(crtFile, SERVER_CERT);
+//        write(crtFile, END_ENTITY_CERT);
+        write(crtFile, "cert");
     }
 }
