@@ -741,7 +741,7 @@ public class KafkaReconciler {
                                                 kafkaServerCertificateHash.put(
                                                         brokerId,
                                                         CertUtils.getCertificateThumbprint(patchResult.resource(),
-                                                                Ca.SecretEntry.getNameForPod(podName, Ca.SecretEntry.CRT)
+                                                                Ca.secretEntryNameForPod(podName, Ca.SecretEntry.CRT)
                                                         ));
                                             });
                                 }

@@ -68,6 +68,27 @@ import static java.util.Collections.singletonMap;
 public abstract class Ca {
 
     /**
+     * Retrieve a specific secret entry for pod from the given Secret.
+     * @param secret Kubernetes Secret containing desired entry
+     * @param podName Name of the pod which secret entry is looked for
+     * @param entry The SecretEntry type
+     * @return the data of the secret entry if found or null otherwise
+     */
+    public static String secretEntryDataForPod(Secret secret, String podName, SecretEntry entry) {
+        return secret.getData().get(secretEntryNameForPod(podName, entry));
+    }
+
+    /**
+     * Get the name of secret entry of given SecretEntry type for podName
+     * @param podName Name of the pod which secret entry is looked for
+     * @param entry The SecretEntry type
+     * @return the name of the secret entry
+     */
+    public static String secretEntryNameForPod(String podName, SecretEntry entry) {
+        return podName + entry.suffix;
+    }
+
+    /**
      * A certificate entry in a ConfigMap. Each entry contains an entry name and data.
      */
     public enum SecretEntry {
@@ -95,24 +116,10 @@ public abstract class Ca {
         }
 
         /**
-         * Retrieve a specific secret entry for pod from the given Secret.
-         * @param secret Kubernetes Secret containing desired entry
-         * @param podName Name of the pod which secret entry is looked for
-         * @param entry The SecretEntry type
-         * @return the data of the secret entry if found or null otherwise
+         * @return
          */
-        public static String getDataForPod(Secret secret, String podName, SecretEntry entry) {
-            return secret.getData().get(getNameForPod(podName, entry));
-        }
-
-        /**
-         * Get the name of secret entry of given SecretEntry type for podName
-         * @param podName Name of the pod which secret entry is looked for
-         * @param entry The SecretEntry type
-         * @return the name of the secret entry
-         */
-        public static String getNameForPod(String podName, SecretEntry entry) {
-            return podName + entry.suffix;
+        public String getSuffix() {
+            return suffix;
         }
 
     }
@@ -510,8 +517,8 @@ public abstract class Ca {
             } else {
                 // coming from an older operator version, the secret exists but without keystore and password
                 certAndKey = addKeyAndCertToKeyStore(subject.commonName(),
-                        Base64.getDecoder().decode(SecretEntry.getDataForPod(secret, podName, SecretEntry.KEY)),
-                        Base64.getDecoder().decode(SecretEntry.getDataForPod(secret, podName, SecretEntry.CRT)));
+                        Base64.getDecoder().decode(secretEntryDataForPod(secret, podName, SecretEntry.KEY)),
+                        Base64.getDecoder().decode(secretEntryDataForPod(secret, podName, SecretEntry.CRT)));
             }
 
             List<String> reasons = new ArrayList<>(2);
@@ -558,8 +565,8 @@ public abstract class Ca {
     }
 
     private boolean isNewVersion(Secret secret, String podName) {
-        String store = SecretEntry.getDataForPod(secret, podName, SecretEntry.P12_KEYSTORE);
-        String password = SecretEntry.getDataForPod(secret, podName, SecretEntry.P12_KEYSTORE_PASSWORD);
+        String store = secretEntryDataForPod(secret, podName, SecretEntry.P12_KEYSTORE);
+        String password = secretEntryDataForPod(secret, podName, SecretEntry.P12_KEYSTORE_PASSWORD);
 
         return store != null && !store.isEmpty() && password != null && !password.isEmpty();
     }
@@ -571,10 +578,10 @@ public abstract class Ca {
      * @return CertAndKey instance
      */
     public static CertAndKey asCertAndKey(Secret secret, String podName) {
-        return asCertAndKey(secret, SecretEntry.getNameForPod(podName, SecretEntry.KEY),
-                SecretEntry.getNameForPod(podName, SecretEntry.CRT),
-                SecretEntry.getNameForPod(podName, SecretEntry.P12_KEYSTORE),
-                SecretEntry.getNameForPod(podName, SecretEntry.P12_KEYSTORE_PASSWORD));
+        return asCertAndKey(secret, secretEntryNameForPod(podName, SecretEntry.KEY),
+                secretEntryNameForPod(podName, SecretEntry.CRT),
+                secretEntryNameForPod(podName, SecretEntry.P12_KEYSTORE),
+                secretEntryNameForPod(podName, SecretEntry.P12_KEYSTORE_PASSWORD));
     }
 
     /**
